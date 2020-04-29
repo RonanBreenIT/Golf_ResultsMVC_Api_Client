@@ -20,7 +20,8 @@ namespace Golf_ResultsMVC_Api_Client
                 var tokenNo = "";
                 Dictionary<string, string> tokenDetails = null;
                 //HttpClient client = new HttpClient();
-                client.BaseAddress = new Uri("http://localhost:55215/");
+                client.BaseAddress = new Uri("http://localhost:55215/"); // Local
+                //client.BaseAddress = new Uri("https://golfresultsmvcnew.azurewebsites.net/"); // Azure (live)
                 var login = new Dictionary<string, string>
                        {
                            {"grant_type", "password"},
@@ -99,6 +100,7 @@ namespace Golf_ResultsMVC_Api_Client
                 Dictionary<string, string> tokenDetails = null;
                 //HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri("http://localhost:55215/");
+                //client.BaseAddress = new Uri("https://golfresultsmvcnew.azurewebsites.net/"); // Azure (live)
                 var login = new Dictionary<string, string>
                        {
                            {"grant_type", "password"},
@@ -175,6 +177,7 @@ namespace Golf_ResultsMVC_Api_Client
                 Dictionary<string, string> tokenDetails = null;
                 //HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri("http://localhost:55215/");
+                //client.BaseAddress = new Uri("https://golfresultsmvcnew.azurewebsites.net/"); // Azure (live)
                 var login = new Dictionary<string, string>
                        {
                            {"grant_type", "password"},
