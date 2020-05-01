@@ -36,7 +36,7 @@ namespace Golf_ResultsMVC_Api_Client.Models
 
         public override string ToString()
         {
-            return "\nComp ID: " + CompetitionID + "\nSeason: " + Season + "\nGolfer ID: " + GolferID + "\nScore: " + GolferScore + "\nDates" + FullDate;
+            return "\nComp ID: " + CompetitionID + "\nSeason: " + Season + "\nGolfer ID: " + GolferID + "\nScore: " + GolferScore + "\nDates: " + FullDate + "\n";
         }
     }
 }
