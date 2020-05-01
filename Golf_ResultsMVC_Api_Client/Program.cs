@@ -19,9 +19,8 @@ namespace Golf_ResultsMVC_Api_Client
                 // Use to retrieve token for admin user. Otherwise can't call service.
                 var tokenNo = "";
                 Dictionary<string, string> tokenDetails = null;
-                //HttpClient client = new HttpClient();
-                client.BaseAddress = new Uri("http://localhost:55215/"); // Local
-                //client.BaseAddress = new Uri("https://golfresultsmvcnew.azurewebsites.net/"); // Azure (live)
+                //client.BaseAddress = new Uri("http://localhost:55215/"); // Local
+                client.BaseAddress = new Uri("https://golfresultsmvcnew.azurewebsites.net/"); // Azure (live)
                 var login = new Dictionary<string, string>
                        {
                            {"grant_type", "password"},
@@ -39,10 +38,7 @@ namespace Golf_ResultsMVC_Api_Client
                     }
                 }
                 
-                //client.BaseAddress = new Uri("http://localhost:55215/api/Golfer/");
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("applications/json"));
-                //client.DefaultRequestHeaders.Add("Authorization", "Bearer " + tokenNo);
-
 
                 // GET: api/Golfer/all
                 response = await client.GetAsync("api/Golfer/all");
@@ -98,9 +94,8 @@ namespace Golf_ResultsMVC_Api_Client
             {
                 var tokenNo = "";
                 Dictionary<string, string> tokenDetails = null;
-                //HttpClient client = new HttpClient();
-                client.BaseAddress = new Uri("http://localhost:55215/");
-                //client.BaseAddress = new Uri("https://golfresultsmvcnew.azurewebsites.net/"); // Azure (live)
+                //client.BaseAddress = new Uri("http://localhost:55215/");
+                client.BaseAddress = new Uri("https://golfresultsmvcnew.azurewebsites.net/"); // Azure (live)
                 var login = new Dictionary<string, string>
                        {
                            {"grant_type", "password"},
@@ -118,7 +113,6 @@ namespace Golf_ResultsMVC_Api_Client
                     }
                 }
 
-                //client.BaseAddress = new Uri("http://localhost:55215/api/Comp/");
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("applications/json"));
 
                 //GET api/Comp/all
@@ -127,11 +121,9 @@ namespace Golf_ResultsMVC_Api_Client
                 {
                     var returnedComps = await response.Content.ReadAsAsync<IEnumerable<Competition>>();
                     Console.WriteLine("\n*** Complete Comp List ****");
-                    int i = 0;
                     foreach (Competition g in returnedComps)
                     {
-                        i += 1;
-                        Console.WriteLine(i + ". " + g);
+                        Console.WriteLine(g);
                     }
                 }
 
@@ -161,10 +153,10 @@ namespace Golf_ResultsMVC_Api_Client
 
                 //DELETE api/Comp/DeleteComp/7
                 response = client.DeleteAsync("api/Comp/DeleteComp/7").Result;
-                //if (response.IsSuccessStatusCode)
+                if (response.IsSuccessStatusCode)
                 {
                     Console.WriteLine("\nDeleted Golf Comp: " + response.IsSuccessStatusCode);
-                 }
+                }
             }
         }
 
@@ -175,9 +167,8 @@ namespace Golf_ResultsMVC_Api_Client
             {
                 var tokenNo = "";
                 Dictionary<string, string> tokenDetails = null;
-                //HttpClient client = new HttpClient();
-                client.BaseAddress = new Uri("http://localhost:55215/");
-                //client.BaseAddress = new Uri("https://golfresultsmvcnew.azurewebsites.net/"); // Azure (live)
+                //client.BaseAddress = new Uri("http://localhost:55215/");
+                client.BaseAddress = new Uri("https://golfresultsmvcnew.azurewebsites.net/"); // Azure (live)
                 var login = new Dictionary<string, string>
                        {
                            {"grant_type", "password"},
@@ -195,7 +186,6 @@ namespace Golf_ResultsMVC_Api_Client
                     }
                 }
 
-                //client.BaseAddress = new Uri("http://localhost:55215/api/CompResult/");
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("applications/json"));
 
                 //GET api/CompResult/all
@@ -271,8 +261,8 @@ namespace Golf_ResultsMVC_Api_Client
 
         static void Main()
         {
-            GetsGolfersAsync().Wait();
-            GetsCompsAsync().Wait();
+            //GetsGolfersAsync().Wait(); // Just commented our for demo
+            //GetsCompsAsync().Wait(); // Just commented our for demo
             GetsCompResultsAsync().Wait();
             Console.ReadLine();
         }
